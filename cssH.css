@@ -1,0 +1,123 @@
+/*p{
+    color: blue;
+}
+*/
+/*.para{
+    color: brown;
+}
+
+/*div p{
+    color: chartreuse;
+}*/
+
+div#para p{
+    color: brown;
+}
+/*nav a: link{
+    color: red;
+}
+/*nav a :hover{
+    color: chartreuse;
+}*/
+nav a :visited{
+    color:blue;
+}
+div p ::first-letter{
+    color: rgb(22, 191, 171);
+    /* It changes the First letter colour in the following paragraph */
+}
+.parent{
+    height: 181px;
+    background-color: brown;
+    width: 100px;
+}
+
+.parent{
+    height: 60vh;
+    background-color: aqua;
+    width: 60vw;
+}
+
+.child{
+    height: 100%;
+    width: 30vw;
+    background-color: blue;
+}
+
+.parent{
+    heigth:50vh;
+    background-color: black;
+    width: 60vw;
+}
+container p{
+    font-family:sans-serif;
+    font-family:  'Courier New', Courier, monospace;
+    font-family: cursive;
+    font-size: 20px;
+    font-size: 2rem;
+    font-style: initial;
+    font-weight: bold;
+}
+
+div.container{
+    border:2px solid rebeccapurple;
+    margin: 20px;
+    /* top , right , bottom , left this can be also done sapretly by margin-left , margin-right*/
+    border-bottom: 3px solid blue;
+    /*             size , style , color */
+    
+    padding: 10px;
+    *{
+        margin:0;
+        padding:0;
+    }
+    /* margin-bottom: 35vw;
+    padding:50px; */
+    /* top right bottom left*/
+    div.container div.child1{
+        height:100px;
+        width:100px;
+        background-color: aqua;
+    }
+
+    div.container div.child2{
+        height:100px;
+        width:100px;
+        background-color: rgb(227, 15, 93);
+    }
+    .child{
+        height: 100px;
+    }
+
+    .item{
+        height:100px;
+        width:100px;
+    }
+    .item1{
+        background-color: aqua;
+    }
+    .item2{
+        background-color: blue;
+    }
+    .item3{
+        background-color: yellowgreen;
+        /* padding: 35px; */
+    }
+    .item5{
+        background-color: violet;
+    }
+    .container{
+        display: flex;
+        /* flex-direction: row-reverse; */
+        /* flex-direction: column-reverse; */
+        /* justify-content: flex-start; shift all the data to the end of row */
+        /* justify-content: center; Shift the data to the centre */
+        height: 70vh;
+        /* align-items: stretch; */
+        /* align-items: center; */
+        /* flex-wrap: wrap makes the boxes comes 1 under another when we shrink the width of the box; */
+        /* column-gap: 20px; makes the distance in between the column boxes */
+        /* row-gap: 20px It makes the gap in bw the rows; */
+        /* align-content: flex-start shifts all the data to start or to the end as per given type; */
+    }
+}
