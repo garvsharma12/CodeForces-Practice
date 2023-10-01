@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
-
+import java.util.*;
 public class MaximumSum {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,25 +13,38 @@ public class MaximumSum {
                 sum+=temp;
                 arr.add(temp);
             }
-            System.out.println(sum);
+            //System.out.println(sum);
+            List<Long> pre = new ArrayList<>();
             Collections.sort(arr);
             System.out.println(arr);
-            while(k>0){
-                long a = arr.get(0) , b = arr.get(1) , z = arr.get(arr.size()-1);
-                if(a+b<z){
-                    sum-=(a+b);
-                    arr.remove(Long.valueOf(a)); arr.remove(Long.valueOf(b));
-                    k--;
+            for(int i=0 ; i<n ; i++) {
+                if(i==0) pre.add(arr.get(i));
+                else{
+                    long temp= pre.get(i-1)+arr.get(i);
+                    pre.add(temp);
                 }
-                else {
-                    sum-=z;
-                    arr.remove(Long.valueOf(z));
-                    k--;
-                }
-                System.out.println(arr);
-                System.out.println(sum+"!");
             }
-            System.out.println(sum);
+            System.out.println(pre);
+            long req=0;
+            int p=-1 ; 
+            int i=1 , j=n-1;
+            while(k!=0){
+                if(pre.get(i)<arr.get(j)){
+                    p=i;
+                    i+=2;
+                }
+                else{
+                    sum-=arr.get(j);
+                    j--;
+                }
+                k--;
+                
+            }
+            if(p==-1) System.out.println(sum);
+            else{
+                sum-=pre.get(p);
+                System.out.println(sum);
+            }
         }
     }
 }
