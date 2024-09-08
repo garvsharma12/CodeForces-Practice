@@ -8,23 +8,22 @@ public class EveryoneLovesToSleep{
             int n = sc.nextInt();
             int H = sc.nextInt();
             int M = sc.nextInt();
-
-            while(n-->0){
+            int ansHr=60 , ansMin=60;
+            int result=1_000_000;
+            int time = H*60 + M;
+            int nT;
+            while (n-->0){
                 int h = sc.nextInt();
                 int m = sc.nextInt();
-                int tempH=Integer.MAX_VALUE , tempM=Integer.MAX_VALUE;
-                if(h==H && m==M){
-                    System.out.println(0+" "+0);
-                    break;
-                }
-                else if(h>H){
-                    int temp1=h-H , temp2 = m-M;
-                    if(tempH>temp1){
-                        tempH=temp1 ; tempM=temp2;
-                    }
-                }
-
+                nT = h*60 + m;
+			
+                if (nT < time) {
+                    result = Math.min(result, nT + 24*60 - time);
+                }else {
+                    result = Math.min(result, nT - time);
+                }   
             }
+            System.out.println(result/60+" "+result%60);
         }
     }
 }

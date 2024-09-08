@@ -6,22 +6,44 @@ public class B {
         int tt = sc.nextInt();
         while(tt-->0){
             int n = sc.nextInt();
-            long out = 1;
-            long[] arr = new long[n];
-            long temp=Long.MAX_VALUE;
-            for(int i=0 ;i<n ;i++){
-                 arr[i] = sc.nextInt();
-                 temp=Math.min(temp,arr[i]);
+            if(n==1){
+                int num = sc.nextInt();
+                System.out.println("YES");
+                continue;
             }
-            boolean b =true;
-            for(int i=0 ;i<n ;i++){
-                if(arr[i]==temp && b){
-                    out*=(arr[i]+1);
-                    b=false;
+            String res="YES";
+            boolean[] b = new boolean[n];
+            Arrays.fill(b,false);
+            for(int i=1 ; i<=n ;i++){
+                int x = sc.nextInt();
+                x--;
+                if(i==1) b[x]=true;
+                else{
+                    if(x==0){
+                        if(b[1]){
+                            b[0]=true;
+                        }
+                        else{
+                            res="NO";
+                        }
+                    }
+                    else if(x==n-1){
+                        if(b[n-2]){
+                            b[n-1]=true;
+                        }
+                        else{
+                            res="NO";
+                        }
+                    }
+                    else if(b[x-1] || b[x+1]){
+                        b[x]=true;
+                    }
+                    else{
+                        res="NO";
+                    }
                 }
-                else out*=arr[i];
             }
-            System.out.println(out);
+            System.out.println(res);
         }
         
 }

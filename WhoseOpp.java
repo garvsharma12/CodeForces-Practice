@@ -12,14 +12,14 @@ public class WhoseOpp {
 
                 long mx =Math.max(a,b);
                 long mn = Math.min(a,b);
-                if(mx==mn || c==mx || c==mn || mx<=mn*2) System.out.println(-1);
-                else 
-                {
-                    long val = mx-mn-1;
-                    long sz = mx+val-(mn-1);
-                    if(sz<c*2) System.out.println(1);
-                    else System.out.println(c*2);
-                    //System.out.println(sz+" @");
+                long diff = mx-mn;
+                long n = mx+diff-mn;
+                if (a > n || b > n || c > n)
+			        System.out.println(-1);
+                else{
+                    long out = (c+diff);
+                    if(out>n) out%=n;
+                    System.out.println(out);
                 }
             }
         }
